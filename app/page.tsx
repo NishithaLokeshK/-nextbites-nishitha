@@ -1,30 +1,20 @@
+import RecipeGrid from "./components/RecipeGrid";
 import { recipes } from "./data/recipes";
-import RecipeCard from "./components/RecipeCard";
 
+// Home page: a hero line, then the searchable grid of recipe cards.
 export default function Home() {
   return (
-    <main className="container">
-
+    <main className="home">
       <section className="hero">
-        <h1>Discover Delicious Recipes</h1>
+        <h1>
+          Find your next <span className="hl">bite</span>.
+        </h1>
         <p>
-          Find your next favorite meal with NextBites!
+          {recipes.length} recipes to browse, search, and cook. Pick one and
+          get the full method.
         </p>
       </section>
-
-      <h2 className="section-title">
-        Popular Recipes
-      </h2>
-
-      <div className="recipe-grid">
-        {recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            recipe={recipe}
-          />
-        ))}
-      </div>
-
+      <RecipeGrid recipes={recipes} />
     </main>
   );
 }
